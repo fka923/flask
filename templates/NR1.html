@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block left %}
+<div class="ui attached segment" style="border-radius: 15px;">
+    <div style="margin-top: 30px">
+        <h2 class="c_titile" style="">Mysql 的存储引擎,myisam和innodb的区别</h2>
+        <p class="box_c"><span class="d_time">发布时间：2020-12-20</span>
+        <span>编辑：冯靠</span>
+        <span>浏览量（89）</span>
+    </p>
+
+    </div>
+
+    <div class="infos" style="margin: 50px 30px 30px 30px">
+        <p>a. MyISAM类型不支持事务处理等高级处理，而InnoDB类型支持.</p>
+        <br/>
+        <p>b. MyISAM类型的表强调的是性能，其执行数度比InnoDB类型更快.</p>
+        <br/>
+        <p>c. InnoDB不支持FULLTEXT类型的索引.</p>
+        <br/>
+        <p>d. InnoDB 中不保存表的具体行数，也就是说，</p>
+        <br/>
+        <p>执行select count(*) from table时，InnoDB要扫描一遍整个表来计算有多少行，</p>
+        <br/>
+        <p>但是MyISAM只要简单的读出保存好的行数即可.</p>
+        <br/>
+        <p>e. 对于AUTO_INCREMENT类型的字段，InnoDB中必须包含只有该字段的索引，但是在MyISAM表中，可以和其他字段一起建立联合索引。</p>
+        <br/>
+        <p>f. DELETE FROM table时，InnoDB不会重新建立表，而是一行一行的删除。</p>
+        <br/>
+        <p>g. LOAD TABLE FROM MASTER操作对InnoDB是不起作用的，解决方法是首先把InnoDB表改成MyISAM表，导入数据后再改成InnoDB表，但是对于使用的额外的InnoDB特性(例如外键)的表不适用.</p>
+        <p>h. MyISAM支持表锁，InnoDB支持行锁。</p>
+
+        <div class="nextinfo" style="margin-top: 50px">
+          <p>上一篇：<a href="{{ url_for('NR') }}">Flash将在2020年12月31日退出历史舞台</a></p>
+          <p>下一篇：<a href="{{ url_for('NR2') }}">Python Flask 实现一个最简单的 Web </a></p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

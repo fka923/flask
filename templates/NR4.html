@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block left %}
+
+
+    <div class="ui attached segment" style="border-radius: 15px;">
+    <div style="margin-top: 30px">
+        <h2 class="c_titile" style="">Java静态导入、权限修饰符、状态修饰符、fianl、static</h2>
+        <p class="box_c"><span class="d_time">发布时间：2020-12-20</span>
+            <span>编辑：冯靠</span>
+            <span>浏览量（89）</span>
+        </p>
+    </div>
+    <div class="infos" style="margin: 50px 30px 30px 30px">
+        <div id="article_content" class="article_content clearfix">
+            <div id="content_views" class="htmledit_views">
+                <p>静态导入(static import)是在 JDK1.5 新增加的功能&#xff0c;其作用是用于导入指定类的静态属性和静态方法&#xff0c;这样我们可以直接使用静态属性和静态方法。
+                    <br />示例代码&#xff08;静态导入的使用&#xff09;
+                </p>
+                <img src="{{ url_for('static',filename='img/java1.png') }}" alt=""/><br/>
+                <p>权限修饰符<br />
+                    <img src="{{ url_for('static',filename='img/java.png') }}" alt=""/><br/>
+                    状态修饰符<br/>
+                    final<br />
+                    Static<br />
+                    Final 最终的<br />
+                    Final可以修饰类 变量 方法<br/>
+                    Final 修饰一个变量 此时变量就是 一个常量<br />
+                    当常量为基本类型时&#xff0c;此时常量的值不能修改。只能赋值一次<br />
+                    当常量为引用类型时。指的是 常量的引用地址不能变&#xff0c;但是引用对象的内容是可变的。<br />
+                    <img src="{{ url_for('static',filename='img/cunchu.png') }}" alt="" /><br />
+                    Final修饰一个 类<br />
+                    当一个类被final修饰 则这个类不能被继承 不能有子类 将这样的类称为太监类<br />
+                    Final修饰方法<br />
+                    使用final修饰的方法不能被重写<br />
+                    Static 静态<br/>
+                    static 关键字是静态的意思&#xff0c;可以修饰成员方法&#xff0c;成员变量<br/>
+                    使用范围&#xff1a;<br />
+                    在Java类中&#xff0c; 可用static修饰属性、 方法、 代码块、 内部类<br/>
+                    被修饰后的成员具备以下特点&#xff1a;<br />
+                    • 随着类的加载而加载<br />
+                    • 优先于对象存在<br />
+                    • 修饰的成员&#xff0c;被所有对象所共享<br />
+                    • 访问权限允许时&#xff0c;可不创建对象&#xff0c;直接被类调&#xff0c;推荐使用类名调用<br />
+                    代码块&#xff1a;代码块就是指使用&#xff5b;&#xff5d;括起来的一段代码</p>
+                    <p>构造代码块的作用和构造方法类似&#xff0c;但是构造方法的主要作用是 构建对象以及对成员变量进行初始化。<br />
+                        构造代码块的主要作用就是用来初始化成员变量<br />
+                        无论使用那种构造方法&#xff0c;构造代码块都会被执行<br />
+                        在构造代码块中可以调用其他的成员方法 但是不能调用构造方法<br />
+                        构造代码块在创建对象时&#xff0c;由jvm自动调用&#xff0c;每次创建对象都会调用一次&#xff0c;且优先于构造方法执行。
+                    </p>
+            </div>
+        </div>
+
+        <div class="nextinfo" style="margin-top: 50px">
+          <p>上一篇：<a href="{{ url_for('NR3') }}">Cookie和Session概念</a></p>
+            <p>下一篇：<a href="#">没有了</a></p>
+        </div>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block left %}
+<div class="ui attached segment" style="border-radius: 15px;">
+    <div style="margin-top: 30px">
+        <h2 class="c_titile" style="">Python Flask 实现一个最简单的 Web </h2>
+        <p class="box_c"><span class="d_time">发布时间：2020-12-20</span>
+            <span>编辑：冯靠</span>
+            <span>浏览量（89）</span>
+        </p>
+    </div>
+    <div class="infos" style="margin: 50px 30px 30px 30px">
+        <div id="article_content" class="article_content clearfix">
+            <div id="content_views" class="htmledit_views">
+                <h3>Python Flask实现最简单的 Web</h3>
+                <p>现在使用 Flask 实现一个最简单的 Web 。</p>
+                <p>
+                    <strong>一、进入开发虚拟环境</strong>
+                </p>
+                <p>在开始开发之前&#xff0c;需要先进入对应的虚拟环境。</p>
+                <p>现在&#xff0c;创建了一个名字叫 FlaskProject 的虚拟环境&#xff0c;同时在家目录下创建了一个名字叫 FlaskProject 的项目目录。</p>
+                <p>使用 Pycharm 打开 FlaskProject 项目&#xff0c;在项目中创建一个 flask_show.py 的py文件&#xff0c;在 flask_show.py 或自己新建的文件中开发代码。</p>
+                <p>选择虚拟环境 FlaskProject 中 Scripts 目录下的 python 作为当前的 Python 解释器&#xff0c;就会进入 FlaskProject 虚拟环境。</p>
+                <p>
+                    <strong>二、实现 Flask Web 功能</strong>
+                </p>
+                <p>
+                    <img src="{{url_for('static',filename='img/py.png') }}">
+                </p>
+                <p> python app.py运行&#xff1a;</p>
+                <p>
+                    <img alt="" class="has" height="226" src="{{url_for('static',filename='img/yx.png') }}" width="630" />
+                </p>
+                <p>运行后&#xff0c;Flask 会有一个自带的服务器来运行当前的程序。</p>
+                <p>默认情况下&#xff0c;服务运行的服务地址是 http://127.0.0.1:5000 &#xff0c;可以在浏览器中打开&#xff0c;显示代码中的 Hello Flask! 。</p>
+                <p>
+                    <img alt="" class="has" height="261" src="{{url_for('static',filename='img/ym.png') }}" width="630" />
+                </p>
+                <p>访问成功&#xff0c;现在已经实现了最简单的 Flask Web 了。</p>
+                <p>
+                    <strong>三、Flask 配置参数说明</strong>
+                </p>
+                <p>上面使用7行代码实现了最简单的 Flask Web 功能。每行代码都做了什么呢&#xff1f;</p>
+                <p>1. 先导入 flask 框架中的 Flask 类&#xff0c;Web 的功能都是由 Flask 类来实现的。</p>
+                <p>2. 初始化一个 Flask 类对象 app &#xff0c;第一个参数是应用模块或者包的名称。</p>
+                <p>Flask 程序实例在创建的时候&#xff0c;需要默认传入当前 Flask 程序所指定的包(__name__)&#xff0c;这是必须的&#xff0c;这样 Flask 才知道到哪去找模板、静态文件等等。</p>
+                <p>在实例化 Flask 类对象的时候&#xff0c;有以下参数&#xff1a;</p>
+                <p>import_name&#xff1a; Flask程序所在的包(模块)&#xff0c;传 <code>__name__</code> 就可以&#xff0c;它可以决定 Flask 在访问静态文件时查找的路径。</p>
+                <p>static_url_path&#xff1a;静态文件访问路径&#xff0c;可以不传&#xff0c;默认为&#xff1a;/ &#43; static_folder 。</p>
+                <p>static_folder&#xff1a;静态文件存储的文件夹&#xff0c;可以不传&#xff0c;默认为 static <code>。</code></p>
+                <p>template_folder&#xff1a;模板文件存储的文件夹&#xff0c;可以不传&#xff0c;默认为 templates 。</p>
+                <p>3. 使用 app.route() 装饰器来定义路由。</p>
+                <p>在 Flask 中&#xff0c;使用实例化的 Flask 对象 app 的 route() 函数来装饰视图函数&#xff0c;在 route() 中传入被装饰的视图函数的路由。</p>
+                <p>路由就是告诉 Flask 什么样的 URL 能触发被装饰的函数。</p>
+                <p>例如传入 / 表示访问根目录时&#xff0c;会返回对应视图函数的结果。</p>
+                <p>4. 定义和实现视图函数</p>
+                <p>视图函数就是 Python 中的一个正常的函数&#xff0c;里面实现需要做的业务逻辑&#xff0c;返回需要在前端页面上展示的数据。</p>
+                <p>5. app.run() 方法运行当前的服务。</p>
+                <p>在run()方法中&#xff0c;可以指定运行的主机IP地址&#xff0c;端口&#xff0c;是否开启调试模式等。</p>
+                <p>app.run(host&#61;&#34;0.0.0.0&#34;, port&#61;5000, debug &#61; True)</p>
+            </div>
+        </div>
+
+        <div class="nextinfo" style="margin-top: 50px">
+          <p>上一篇：<a href="{{ url_for('NR1') }}">Mysql 的存储引擎,myisam和innodb的区别</a></p>
+            <p>下一篇：<a href="{{ url_for('NR3') }}">Cookie和Session概念</a></p>
+        </div>
+
+    </div>
+  </div>
+
+{% endblock %}

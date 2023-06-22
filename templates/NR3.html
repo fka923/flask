@@ -1,0 +1,47 @@
+{% extends 'base.html'%} }
+
+{% block left %}
+<div class="ui attached segment" style="border-radius: 15px;">
+    <div style="margin-top: 30px">
+        <h2 class="c_titile" style="">Cookie和Session概念</h2>
+        <p class="box_c"><span class="d_time">发布时间：2020-12-20</span>
+            <span>编辑：冯靠</span>
+            <span>浏览量（89）</span>
+        </p>
+    </div>
+
+    <div class="infos" style="margin: 50px 30px 30px 30px">
+        <h1><a id="1CookieSession_0"></a>1、Cookie和Session概念</h1>
+            <p><strong>&#xff08;1&#xff09;cookie&#xff1a;</strong> 在网站中&#xff0c;http请求是无状态的。也就是说即使第一次和服务器连接后并且登录成功后&#xff0c;第二次请求服务器依然不能知道当前请求是哪个用户。<code>cookie</code>的出现就是为了解决这个问题&#xff0c;第一次登录后服务器返回一些数据&#xff08;cookie&#xff09;给浏览器&#xff0c;然后浏览器保存在本地&#xff0c;当该用户发送第二次请求的时候&#xff0c;就会自动的把上次请求存储的<code>cookie</code>数据自动的携带给服务器&#xff0c;服务器通过浏览器携带的数据就能判断当前用户是哪个了。cookie存储的数据量有限&#xff0c;不同的浏览器有不同的存储大小&#xff0c;但一般不超过4KB。因此使用<code>cookie</code>只能存储一些小量的数据。</p>
+                <p><strong>&#xff08;2&#xff09;session:</strong> session和cookie的作用有点类似&#xff0c;都是为了存储用户相关的信息。不同的是&#xff0c;<code>cookie</code>是存储在本地浏览器&#xff0c;<code>session</code>是一个思路、一个概念、一个服务器存储授权信息的解决方案&#xff0c;不同的服务器&#xff0c;不同的框架&#xff0c;不同的语言有不同的实现。虽然实现不一样&#xff0c;但是他们的目的都是服务器为了方便存储数据的。<code>session</code>的出现&#xff0c;是为了解决<code>cookie</code>存储数据不安全的问题的。<br /> session的好处&#xff1a;</p>
+                <ul><li>敏感数据不是直接发送回给浏览器&#xff0c;而是发送回给一个<code>session_id</code>服务器将<code>session_id</code>和敏感数据做一个映射存储在<code>session</code>(在服务器上面)中&#xff0c;更加安全。</li><li><code>session</code>可以设置过期时间&#xff0c;也从另一方面保护了用户的账户安全。</li></ul>
+                <p><strong>&#xff08;3&#xff09;cookie和session结合使用&#xff1a;</strong> <code>web</code>开发发展至今&#xff0c;<code>cookie</code>和<code>session</code>的使用已经出现了一些非常成熟的方案。在如今的市场或者企业里&#xff0c;一般有两种存储方式&#xff1a;</p>
+                <ul><li>存储在服务端&#xff1a;通过<code>cookie</code>存储一个<code>session_id</code>&#xff0c;然后具体的数据则是保存在<code>session</code>中。如果用户已经登录&#xff0c;则服务器会在<code>cookie</code>中保存一个<code>session_id</code>&#xff0c;下次再次请求的时候&#xff0c;会把该<code>session_id</code>携带上来&#xff0c;服务器根据<code>session_id</code>在<code>session</code>库中获取用户的<code>session</code>数据。就能知道该用户到底是谁&#xff0c;以及之前保存的一些状态信息。这种专业术语叫做<code>server side session</code>。存储在服务器的数据会更加的安全&#xff0c;不容易被窃取。但存储在服务器也有一定的弊端&#xff0c;就是会占用服务器的资源&#xff0c;但现在服务器已经发展至今&#xff0c;一些<code>session</code>信息还是绰绰有余的。</li><li>将<code>session</code>数据加密&#xff0c;然后存储在<code>cookie</code>中。这种专业术语叫做<code>client side session</code>。flask采用的就是这种方式&#xff0c;但是也可以替换成其他形式。</li></ul>
+                <h1><a id="2flaskcookiesession_12"></a>2、flask中使用cookie和session</h1>
+                <p><strong>&#xff08;1&#xff09;cookie&#xff1a;</strong> 在<code>Flask</code>中操作<code>cookie</code>&#xff0c;是通过<code>response</code>对象来操作&#xff0c;可以在<code>response</code>返回之前&#xff0c;通过<code>response.set_cookie</code>来设置&#xff0c;这个方法有以下几个参数需要注意&#xff1a;</p>
+                <ul><li>key&#xff1a;设置的cookie的key。</li><li>value&#xff1a;key对应的value。</li><li>max_age&#xff1a;改cookie的过期时间&#xff0c;如果不设置&#xff0c;则浏览器关闭后就会自动过期。</li><li>expires&#xff1a;过期时间&#xff0c;应该是一个<code>datetime</code>类型。</li><li>domain&#xff1a;该cookie在哪个域名中有效。一般设置子域名&#xff0c;比如<code>cms.example.com</code>。</li><li>path&#xff1a;该cookie在哪个路径下有效。</li></ul>
+                <p><strong>&#xff08;2&#xff09; session&#xff1a;</strong> <code>Flask</code>中的<code>session</code>是通过<code>from flask import session</code>。然后添加值<code>key</code>和<code>value</code>进去即可。并且&#xff0c;<code>Flask</code>中的<code>session</code>机制是将<code>session</code>信息加密&#xff0c;然后存储在<code>cookie</code>中。专业术语叫做<code>client side session</code>。</p>
+                <h1><a id="3flask_session_23"></a>3、flask中的 session工作机制</h1>
+                <ul><li>flask中的<code>session</code>机制是&#xff1a;把敏感数据经加密后&#xff0c;放入<code>session</code>中&#xff0c;然后再把<code>session</code>存放到<code>cookie</code>中&#xff0c;下次请求的时候&#xff0c;再从浏览器发送过来的<code>cookie</code>中读取 <code>session</code>&#xff0c;然后在从<code>session</code>中读取敏感数据&#xff0c;并进行解密&#xff0c;获取最终的用户数据。</li><li>flask的这种<code>session</code>机制可以节省服务器的开销&#xff0c;因为把所有的信息都存储到了客户端&#xff08;浏览器&#xff09;。</li><li>安全是相对的&#xff0c;把<code>session</code>放到<code>cookie</code>中&#xff0c;经过加密&#xff0c;也是比较安全的&#xff0c;这点大家可以放心使用。</li></ul>
+                <h1><a id="4session_27"></a>4、操作session</h1>
+                <p>&#xff08;1&#xff09;session的操作方式&#xff1a;</p>
+                <ul><li>使用<code>session</code>需要从flask中导入<code>session</code>&#xff0c;以后所有和<code>session</code>相关的操作都是通过这个变量来的。</li><li>使用<code>session</code>需要设置<code>SECRERT_KEY</code>&#xff0c;用来作为加密用的&#xff0c;而且这个<code>SECRERT_KEY</code>如果每次服务器启动后都变化的话&#xff0c;那么之前的<code>session</code>就不能再通过当前这个<code>SECRERT_KEY</code>进行解密了。</li><li>操作<code>session</code>的时候&#xff0c;跟操作字典是一样的。
+                  <ul><li><strong>添加<code>session</code>&#xff1a;</strong> &#xff1a;<code>session[&#39;username&#39;] &#61; &#39;string&#39;</code>。</li><li><strong>删除<code>session</code>&#xff1a;</strong> <code>session.pop(&#39;username&#39;)</code> 或者<code>del session[&#39;username&#39;]</code>。</li><li><strong>清除所有<code>session</code>&#xff1a;</strong> <code>session.clear()</code></li><li><strong>获取<code>session</code>&#xff1a;</strong> <code>session.get(&#39;username&#39;)</code></li></ul> </li></ul>
+                <p>&#xff08;2&#xff09;设置<code>session</code>的过期时间</p>
+                <ul><li>如果没有指定<code>session</code>的过期时间&#xff0c;那么默认的就是浏览器关闭后就自动结束</li><li>如果设置了<code>session</code>的<code>permanent</code>属性为True&#xff0c;那么过期时间就是默认的31天。</li><li><strong>自定义过期时间&#xff1a;</strong> 可通过个给app.config设置<code>PERMANENT_SESSION_LIFETIME</code>来更改过期时间&#xff0c;这个值的数据类型是<code>datetime.timedelay</code>类型。</li></ul>
+                <h2><a id="_43">
+                </a>
+                </h2>
+
+
+
+
+    <div class="nextinfo" style="margin-top: 50px">
+      <p>上一篇：<a href="{{ url_for('NR2') }}">Python Flask实现最简单的 Web</a></p>
+      <p>下一篇：<a href="{{ url_for('NR4') }}">Java静态导入、权限修饰符、状态修饰符、fianl、static</a></p>
+    </div>
+ </div>
+
+  </div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block left %}
+<div class="picbox fka">
+    <ul class="img">
+
+        <li data-scroll-reveal="enter bottom over 1s" data-scroll-reveal-id="2" style="-webkit-transform: translatey(0);transform: translatey(0);opacity: 1;-webkit-transition: -webkit-transform 1s ease-in-out 0s,  opacity 1s ease-in-out 0s;transition: transform 1s ease-in-out 0s, opacity 1s ease-in-out 0s;-webkit-perspective: 1000;-webkit-backface-visibility: hidden;" data-scroll-reveal-initialized="true">
+            <a href="">
+                <i>
+                    <a href="{{ url_for('XC1') }}"><img src="{{ url_for('static' ,filename='img/1587551636557.jpg') }}"></a>
+                </i>
+            </a>
+        <div class="picinfo">
+          <h3>天空的云</h3>
+          <span>当你仰望填空，除了太阳还有云</span> </div>
+        </li>
+    </ul>
+    <ul class="img">
+        <li data-scroll-reveal="enter bottom over 1s" data-scroll-reveal-id="2" style="-webkit-transform: translatey(0);transform: translatey(0);opacity: 1;-webkit-transition: -webkit-transform 1s ease-in-out 0s,  opacity 1s ease-in-out 0s;transition: transform 1s ease-in-out 0s, opacity 1s ease-in-out 0s;-webkit-perspective: 1000;-webkit-backface-visibility: hidden;" data-scroll-reveal-initialized="true"><a href="">
+            <i>
+                <a href="{{ url_for('XC2') }}"><img src="{{ url_for('static' ,filename='img/img1/9-15.jpg') }}"></a>
+            </i>
+        </a>
+            <div class="picinfo">
+            <h3>宇宙中的美景</h3>
+            <span>也许在宇宙中的某个地方有另一个你</span> </div>
+        </li>
+    </ul>
+  </div>
+
+
+{% endblock %}>

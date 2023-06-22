@@ -1,0 +1,48 @@
+{% extends 'baseLogin.html' %}
+
+{% block zhuce %}
+    <div class="top">
+        <div class="container">
+            <div class="left" style="height: 350px">
+                <div class="login">注册</div>
+                <div class="eula">欢迎使用！</div>
+                <div class="eula">已有账号？<a href="{{ url_for('login') }}" style="color: #0d71bb">点击登录</a></div>
+                {% if zhuceX %}
+                    <div class="alert alert-warning alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>两次密码不一致！请重新输入！</strong>
+                    </div>
+              {% endif %}
+            {% if em %}
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>该邮箱已被注册！</strong>
+                    </div>
+              {% endif %}
+            {% if zhuceD %}
+                    <div class="alert alert-success alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>注册成功请登录！</strong>
+                    </div>
+              {% endif %}
+
+            </div>
+            <div class="right" style="height: 450px">
+                <div class="form">
+                    <form class="form-signin" method="post" action="{{ url_for('zhuce') }}">
+                        <label for="name">姓名</label>
+                        <input type="text" id="name" name="name" required autofocus>
+                        <label for="email">邮箱</label>
+                        <input type="email" id="email" name="email" required autofocus>
+                        <label for="password">密码</label>
+                        <input type="password" id="password" name="password" required>
+                        <label for="password1">再次输入密码</label>
+                        <input type="password" id="password1" name="password1" required>
+                        <input type="submit" id="submit" value="提交">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,53 @@
+{% extends 'baseLogin.html' %}
+{% block login %}
+<div class="top">
+    <div class="container">
+        <div class="left">
+            <div class="login">登录</div>
+            <div class="eula">欢迎使用！没有账号？<a href="{{ url_for('zhuce') }}" style="color: #0d71bb">点击注册</a></div>
+            {% if c %}
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <strong>密码错误!</strong>
+            </div>
+            {% endif %}
+
+            {% if z %}
+            <div class="alert alert-info alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <strong>用户不存在请注册！</strong>
+            </div>
+            {% endif %}
+            {% if zhuceD %}
+            <script type="text/javascript">
+                alert("修改密码成功！")
+            </script>
+            {% endif %}
+        </div>
+        <div class="right">
+            <svg viewBox="0 0 320 300">
+                <defs>
+                    <lineargradient inkscape:collect="always" id="linearGradient" x1="13" y1="193.49992" x2="307"
+                                    y2="193.49992" gradientUnits="userSpaceOnUse">
+                        <stop style="stop-color:#ff00ff;" offset="0" id="stop876"></stop>
+                        <stop style="stop-color:#ff0000;" offset="1" id="stop878"></stop>
+                    </lineargradient>
+                </defs>
+                <path d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143"></path>
+            </svg>
+            <div class="form">
+                <form class="form-signin" method="post" action="">
+                    <label for="email">邮箱</label>
+                    <input type="email" id="email" name="email" required autofocus>
+                    <label for="password">密码</label>
+                    <input type="password" id="password" name="password" required>
+                    <input type="submit" id="submit" value="登录">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

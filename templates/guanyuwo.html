@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta name="author" content="19软件4班1936140406冯可傲">
+    <meta name="keywords" content="博客,个人博客,博客模板,博客系统,网站制作,个人博客网站,it博客,个人网站,优秀的个人网站">
+    <meta charset=UTF-8">
+    <title>首页</title>
+    <link href="{{ url_for('static',filename='css/index.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='css/m.css') }}" rel="stylesheet">
+
+    <link rel="icon" href="{{ url_for('static' ,filename='img/1608277674335.jpg') }}">
+
+    <link rel="icon" href="{{ url_for('static' ,filename='img/1608277674335.jpg') }}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/semantic.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <script src="{{ url_for('static',filename='js/xin.js')}}" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+
+    <link rel="stylesheet" href="{{url_for('static',filename='css/new.css') }}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/luiyan.css') }}">
+    <style type="text/css">
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 1000px;
+            background-color: #e9eaed;
+            background-attachment: fixed;
+        }
+
+        footer {
+            flex: 0 0 auto;
+        }
+
+        .ui1 {
+            color: rgb(51, 51, 51);
+            font-family: 宋体;
+            font-size: 14px;
+            text-indent: 28px;
+        }
+
+        .wo {
+            font-size: 13px;
+            color: #616262;
+        }
+
+
+    </style>
+</head>
+<body>
+<script src="{{ url_for('static',filename='js/canvas-nest.js')}}" type="text/javascript" color="97,98,98" opacity="0.8"
+        count="300"></script>
+<canvas id="c_n1" width="1519" height="704"
+        style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 0.8;"></canvas>
+<!--导航-->
+<nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu" style="height: 60px; margin: auto">
+
+            <a href="{{ url_for('zhuye') }}" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+            <a href="{{ url_for('xc') }}" class="m-item item m-mobile-hide"><i class="tags icon"></i>相册</a>
+            <a href="{{ url_for('gu') }}" class="m-item item m-mobile-hide"><i class="info icon"></i>留言</a>
+            <div class="m-item  right item m-mobile-hide">
+                {% if uname==none %}
+                <div class="ui icon input">
+                    <a href="{{ url_for('login') }}" class="m-item item m-mobile-hide">登录</a>
+                </div>
+                {% endif %}
+                {% if uname!=none %}
+                <h2 class="ui teal header item">欢迎{{ uname }}</h2>
+                <a href="{{ url_for('zhuxiao') }}" class="m-item item m-mobile-hide">注销</a>
+                <a href="{{ url_for('GM') }}" class="m-item item m-mobile-hide">改密</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+</nav>
+
+<!--中间-->
+<div class="m-padded-tb-max">
+    <div class="ui container">
+        <div class="ui stackable grid">
+            <!--左边-->
+            <div class="eleven wide column">
+
+                <form action="" method="post" class="basic-grey">
+                    <h1>给我留言</h1>
+                    <label>
+                        <span style="font-size: 14px;">对我说 :</span>
+                        <textarea id="message" name="message" placeholder="你想对我说的" style="height: 265px;"></textarea>
+                    </label>
+                    {% if uname==none %}
+                    <label>
+                        <span>&nbsp;</span>
+                        <input type="button" class="button" value="发送" onclick="al();"/>
+                    </label>
+                    {% endif %}
+                    {% if uname!=none %}
+                    <label>
+                        <span>&nbsp;</span>
+                        <input type="submit" class="button" value="发送" onclick="good();"/>
+                    </label>
+                    {% endif %}
+                </form>
+
+                <script type="text/javascript">
+                    function al() {
+                        alert("请先登录！")
+
+                    }
+
+                    function good() {
+                        alert("留言成功！")
+                    }
+
+
+                </script>
+            </div>
+            <!--右边-->
+            <div class="five wide column">
+                <!--分类-->
+                <div class="ui segments">
+                    <div class="ui secondary segment">
+                        <div class="ui two column grid">
+                            <div class="column">
+                                <i class="idea icon"></i>关于我
+                            </div>
+                            <div class="right aligned column">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui teal segment">
+                        <div class="wo">
+                            <p>网名：<a href="https://user.qzone.qq.com/171875140/infocenter"
+                                     class="qq-icon"><span>沫。</span></a></p>
+                            <p>姓名：冯可傲 </p>
+                            <p>生日：2020-09-23</p>
+                            <p>籍贯：山东省―聊城市</p>
+                            <p>现居：烟台市―莱山区</p>
+                            <p>爱好：骑行、看电影、游戏</p>
+                            <p>职业：学生、博客站长</p>
+                            <p>我爱NBA：湖人、勇士</p>
+                        </div>
+                    </div>
+                </div>
+                <!--标签-->
+                <div class="ui segments">
+                    <div class="ui secondary segment">
+                        <div class="ui two column grid">
+                            <div class="column">
+                                <i class="tags icon"></i>标签
+                            </div>
+                            <div class="right aligned column">
+                                <a href="#">more &gt;&gt;</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui teal segment">
+                        <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">篮球</a>
+                        <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">健身</a>
+                        <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">自律</a>
+                        <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">自信</a>
+                        <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">阳光</a>
+                        <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">交友</a>
+                        <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">超越</a>
+                        <a href="#" target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny">奋斗</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--底部-->
+<footer class="ui inverted vertical segment m-padded-tb-max">
+    <div class="ui center aligned container">
+        <div class="three wide column">
+            <div class="ui inverted link list">
+                <div class="item">
+                    <img src="{{ url_for('static', filename='img/E1CL))`2TD%KYX%6}8[HJ5N.png') }}"
+                         class="ui rounded image" alt="" style="width: 100px;">
+                </div>
+            </div>
+        </div>
+        <div class="four wide column">
+            <h5 class="ui inverted header m-text-thin m-text-spaced ">最新博客</h5>
+            <div class="ui inverted link list">
+                <a href="#" class="item">人生导师(my story)</a>
+                <a href="#" class="item">心灵鸡汤(my video)</a>
+                <a href="#" class="item">自我认知(my feel)</a>
+            </div>
+        </div>
+        <div class="four wide column">
+            <h5 class="ui inverted header m-text-thin m-text-spaced ">个人信息</h5>
+            <div class="ui inverted link list">
+                <a href="#" class="item">WeChat:fengkeao</a>
+                <a href="#" class="item">QQ:fka0923</a>
+            </div>
+        </div>
+        <div class="five wide column">
+            <h5 class="ui inverted header m-text-thin m-text-spaced ">博客</h5>
+            <p class="m-text-thin m-text-spaced m-opacity-tiny">这是我的个人博客，会定期分享我的故事,编程知识，希望可以给看我博客的人带来快乐</p>
+        </div>
+    </div>
+    <div class="ui inverted section divider"></div>
+    <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2020 - 2020 Rownn Designed by Rownn</p>
+    </div>
+</footer>
+
+<script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/semantic.min.js') }}"></script>
+
+<script>
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide')
+    })
+</script>
+
+</body>
+</html>

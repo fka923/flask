@@ -1,0 +1,206 @@
+{% extends 'base1.html' %}
+{% block left %}
+
+                    <!--header-->
+                    <div class="ui top segment">
+                        <div class="ui middle aligned two column grid">
+                            <div class="column">
+                                <h3 class="ui teal header">博客</h3>
+                            </div>
+                            <div class="right aligned column">
+                                共 <h3 class="ui orange header m-inline-block m-text-thin">5</h3>篇
+                            </div>
+                        </div>
+                    </div>
+                    <!--博客主题-->
+                    <div class="ui attached segment">
+
+                        <div class="ui m-padded-tb-max vertical segment ">
+                            <div class="ui mobile reversed stackable grid">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header"><a href="{{ url_for('NR') }}">Flash将在2020年12月31日退出历史舞台</a></h3>
+                                    <p>外媒 Winfuture 报道，Adobe 的 Flash 格式迅速从动画网络故事的英雄变成了网络广告的反派，让你的 PC 速度变慢，最终成为恶意软件的载体。</p>
+                                    <div class="ui grid">
+                                        <div class="eleven wide column">
+                                            <div class="ui horizontal link list">
+                                                <div class="item">
+                                                    <img src="{{ url_for('static',filename='img/1608277674335.jpg') }}" alt="" class="ui avatar image img">
+                                                    <div class="content"><a href="#" class="header">冯靠</a></div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="calendar icon"></i>2020-6-20
+                                                </div>
+                                                <div class="item">
+                                                    <i class="eye icon"></i> 10
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right aligned five wide column">
+                                            <a href="{{ url_for('NR') }}" target="_blank" class="ui teal basic label">阅读原文</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="five wide column img_box">
+                                    <a href="#" target="_blank">
+                                        <img src="{{ url_for('static',filename='img/flash.jpg') }}" alt="" class="ui rounded image image-size img">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="ui m-padded-tb-max vertical segment ">
+                            <div class="ui mobile reversed stackable grid">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header"><a href="{{ url_for('NR1') }}">Mysql 的存储引擎,myisam和innodb的区别</a></h3>
+                                    <p>a.MyISAM类型不支持事务处理等高级处理，而InnoDB类型支持.b.MyISAM类型的表强调的是性能，其执行数度比InnoDB类型更快.c.InnoDB不支持FULLTEXT类型的索引...</p>
+                                    <div class="ui grid">
+                                        <div class="eleven wide column">
+                                            <div class="ui horizontal link list">
+                                                <div class="item">
+                                                    <img src="{{ url_for('static',filename='img/1608277674335.jpg') }}" alt="" class="ui avatar image">
+                                                    <div class="content"><a href="#" class="header">冯靠</a></div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="calendar icon"></i>2020-6-20
+                                                </div>
+                                                <div class="item">
+                                                    <i class="eye icon"></i> 10
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right aligned five wide column">
+                                            <a href="{{ url_for('NR1') }}" target="_blank" class="ui teal basic label">阅读原文</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="five wide column img_box">
+                                    <a href="#" target="_blank">
+                                        <img src="{{ url_for('static',filename='img/mysql.png') }}" alt="" class="ui rounded image image-size img">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="ui m-padded-tb-max vertical segment ">
+                            <div class="ui mobile reversed stackable grid">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header"><a href="{{ url_for('NR2') }}">Python Flask实现最简单的 Web</a></h3>
+                                    <p>怎样才算是认清了自己，了解了自我？可能是一个人对于自己是一个怎样的人、将要去向何方、以及自己与社会的关系都有了一种相对稳定且连续的认知。这种状态也叫做——完成了“自我认同”。</p>
+                                    <div class="ui grid">
+                                        <div class="eleven wide column">
+                                            <div class="ui horizontal link list">
+                                                <div class="item">
+                                                    <img src="{{ url_for('static',filename='img/1608277674335.jpg') }}" alt="" class="ui avatar image">
+                                                    <div class="content"><a href="#" class="header">冯靠</a></div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="calendar icon"></i>2020-6-20
+                                                </div>
+                                                <div class="item">
+                                                    <i class="eye icon"></i> 10
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right aligned five wide column">
+                                            <a href="{{ url_for('NR2') }}" target="_blank" class="ui teal basic label">阅读原文</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="five wide column img_box">
+                                    <a href="#" target="_blank">
+                                        <img src="{{url_for('static',filename='img/python.png') }}" alt="" class="ui rounded image image-size img">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ui m-padded-tb-max vertical segment ">
+                            <div class="ui mobile reversed stackable grid">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header"><a href="{{ url_for('NR3') }}">Cookie和Session概念</a></h3>
+                                    <p>在网站中&#xff0c;http请求是无状态的。也就是说即使第一次和服务器连接后并且登录成功后&#xff0c;第二次请求服务器依然不能知道当前请求是哪个用户。</p>
+                                    <div class="ui grid">
+                                        <div class="eleven wide column">
+                                            <div class="ui horizontal link list">
+                                                <div class="item">
+                                                    <img src="{{ url_for('static',filename='img/1608277674335.jpg') }}" alt="" class="ui avatar image">
+                                                    <div class="content"><a href="#" class="header">冯靠</a></div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="calendar icon"></i>2020-6-20
+                                                </div>
+                                                <div class="item">
+                                                    <i class="eye icon"></i> 10
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right aligned five wide column">
+                                            <a href="{{ url_for('NR3') }}" target="_blank" class="ui teal basic label">阅读原文</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="five wide column img_box">
+                                    <a href="{{ url_for('NR3') }}" target="_blank">
+                                        <img src="{{ url_for('static',filename='img/python.png') }}" alt="" class="ui rounded image image-size img">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="ui m-padded-tb-max vertical segment ">
+                            <div class="ui mobile reversed stackable grid">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header"><a href="{{ url_for('NR4')}}">Java静态导入、权限修饰符、状态修饰符、fianl、static</a></h3>
+                                    <p>静态导入(static import)是在 JDK1.5 新增加的功能，其作用是用于导入指定类的静态属性和静态方法，这样我们可以直接使用静态属性和静态方法。</p>
+                                    <div class="ui grid">
+                                        <div class="eleven wide column">
+                                            <div class="ui horizontal link list">
+                                                <div class="item">
+                                                    <img src="{{ url_for('static',filename='img/1608277674335.jpg') }}" alt="" class="ui avatar image">
+                                                    <div class="content"><a href="#" class="header">冯靠</a></div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="calendar icon"></i>2020-6-20
+                                                </div>
+                                                <div class="item">
+                                                    <i class="eye icon"></i> 10
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right aligned five wide column">
+                                            <a href="" target="_blank" class="ui teal basic label">阅读原文</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="five wide column img_box">
+                                    <a href="#" target="_blank">
+                                        <img src="{{ url_for('static',filename='img/java2.png') }}" alt="" class="ui rounded image image-size img">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--博客底部-->
+                    <div class="ui bottom attached segment">
+                        <div class="ui middle aligned two column grid">
+                            <div class="column">
+                                <a href="#" class="ui mini teal basic button">上一页</a>
+                            </div>
+                            <div class="right aligned column">
+                                <a href="#" class="ui mini teal basic button">下一页</a>
+                            </div>
+                        </div>
+                    </div>
+
+{% endblock %}

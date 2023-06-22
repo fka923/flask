@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link href="{{ url_for('static',filename='css/index.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='css/m.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+
+
+    <link rel="icon" href="{{ url_for('static' ,filename='img/1608277674335.jpg') }}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/semantic.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <script src="{{ url_for('static',filename='js/xin.js')}}" type="text/javascript"></script>
+
+
+    <link rel="stylesheet" href="{{url_for('static',filename='css/justifiedgallery.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/swipebox.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/colorbox.css')}}">
+
+    <script src="{{ url_for('static',filename='js/jquery.min1.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static',filename='js/justifiedgallery.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static',filename='js/jquery.swipebox.min.js')}}" type="text/javascript"></script>
+    <script src="{{ url_for('static',filename='js/jquery.colorbox-min.js')}}" type="text/javascript"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#remotetest').justifiedGallery({rel: 'gal0'}).on('jg.rowflush', function () {
+			$(this).find('a').colorbox({
+				maxWidth : '80%',
+				maxHeight : '80%',
+				opacity : 0.8,
+				transition : 'elastic',
+				current : ''
+			});
+		});
+	});
+</script>
+
+
+
+</head>
+<body>
+<script src="{{ url_for('static',filename='js/canvas-nest.js')}}" type="text/javascript" color="97,98,98" opacity="0.8" count="300"></script>
+<canvas id="c_n1" width="1519" height="704" style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 0.8;"></canvas>
+<header>
+    <!--导航-->
+    <nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu" style="height: 60px; margin: auto">
+
+                <a href="{{ url_for('zhuye') }}" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+                <a href="{{ url_for('xc') }}" class="m-item item m-mobile-hide"><i class="tags icon"></i>相册</a>
+                <a href="{{ url_for('gu') }}" class="m-item item m-mobile-hide"><i class="info icon"></i>留言</a>
+                <div class="m-item  right item m-mobile-hide">
+                    {% if uname==none %}
+                    <div class="ui icon input">
+                        <a href="{{ url_for('zhuye') }}" class="m-item item m-mobile-hide">登录</a>
+                    </div>
+                    {% endif %}
+                    {% if uname!=none %}
+                        <h2 class="ui teal header item">欢迎{{ uname }}</h2>
+                        <a href="{{ url_for('zhuxiao') }}" class="m-item item m-mobile-hide">注销</a>
+                        <a href="{{ url_for('GM') }}" class="m-item item m-mobile-hide">改密</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+    <!--中间-->
+{% block fka %}
+
+{% endblock %}
+  
+
+
+
+
+    <!--底部-->
+    <footer class="ui inverted vertical segment m-padded-tb-max" style="height: 100px">
+        <div class="ui center aligned container">
+
+            <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2020 - 2020 Rownn Designed by Rownn</p>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+</body>
+</html>
